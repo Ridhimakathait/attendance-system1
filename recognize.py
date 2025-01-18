@@ -1,11 +1,9 @@
 import cv2
 import numpy as np
-from tensorflow.keras.models import load_model
+from tensorflow.keras.models import load_model  # type: ignore
 import sqlite3
 from datetime import datetime
 from preprocess import preprocess_images
-
-
 
 # Load the model
 model = load_model("face_recognition_model.h5")
@@ -38,15 +36,16 @@ def recognize_face(image_path):
 
     predictions = model.predict(img_array)
     label = np.argmax(predictions)
-    confidence = np.max(predictions)
+    accuracy = np.max(predictions) * 100  # Convert to percentage
 
-    if confidence > 0.8:  # Confidence threshold
+    if accuracy > 90:  # Confidence threshold
         recognized_name = label_dict[label]
-        log_attendance(recognized_name)
-        print(f"Recognized: {recognized_name}, Confidence: {confidence}")
+        print(f"Recognized: {recognized_name}, Accuracy: {accuracy:.2f}%")  # Display as percentage
+        return recognized_name, accuracy
     else:
-        print("Face not recognized or low confidence.")
+        print("Face not recognized or low accuracy.")  # Changed from confidence to accuracy
+        return None, accuracy
 
 # Test with an image
-test_image = r"C:\Users\hp\Downloads\archive\lfw-deepfunneled\lfw-deepfunneled\lfw-deepfunneled\Hitomi_Soga\Hitomi_Soga_0001.jpg"
+test_image = r"C:\Users\hp\Downloads\archive\lfw-deepfunneled\lfw-deepfunneled\lfw-deepfunneled\Gus_Van_Sant\Gus_Van_Sant_0001.jpg"
 recognize_face(test_image)

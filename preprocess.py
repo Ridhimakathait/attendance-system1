@@ -10,7 +10,7 @@ def preprocess_images(data_dir, img_size=(128, 128)):
     for label, person_name in enumerate(os.listdir(data_dir)):
         person_dir = os.path.join(data_dir, person_name)
         if os.path.isdir(person_dir):
-            label_dict[label] = person_name
+            label_dict[label] = person_name #mapping labels to name
             for image_name in os.listdir(person_dir):
                 image_path = os.path.join(person_dir, image_name)
                 img = cv2.imread(image_path)
