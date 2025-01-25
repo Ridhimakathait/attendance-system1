@@ -3,10 +3,10 @@
 This project uses **machine learning** and **facial recognition** to automate the attendance management process. It leverages **Convolutional Neural Networks (CNNs)** for face detection and recognition to track and log attendance accurately in real-time. The system aims to reduce human intervention, minimize errors, and increase efficiency in attendance management.
 
 ## Features
-- **Facial Recognition**: Using CNN-based models to detect and recognize faces in real-time.
+- **Facial Recognition**: Improved accuracy threshold for face recognition.
 - **Automated Attendance**: Real-time logging of attendance with minimal human intervention.
+- **User Interface**: Added GUI functionality for uploading images and logging attendance.
 - **Database Integration**: SQLite-based database to store attendance records.
-- **User Interface**: A simple interface to view and manage attendance data.
 
 ## Technologies Used
 - **Python** (3.x)
@@ -38,7 +38,7 @@ Before running this project, ensure you have the following installed:
 ```
 automatic-attendance-system/
 │
-├── dataset/               # Folder to store images of individuals for training(path in the my code:r"C:\Users\hp\Downloads\archive\lfw-deepfunneled\lfw-deepfunneled\lfw-deepfunneled")
+├── dataset/               # Folder to store images of individuals for training
 ├── app.py                 # Main script to run the app and start attendance logging
 ├── train.py               # Python script to train the model
 ├── recognize.py           # Python script to recognize faces and log attendance
@@ -52,7 +52,6 @@ automatic-attendance-system/
 ### 1. **Prepare the Dataset**:
 - Create a folder `dataset/` and place images of individuals in it.
 - Each folder within `dataset/` should be named after the person and contain multiple images of them.
-- I have taken a dataset named "Labelled faces in the Wild"
 
 ### 2. **Train the Model**:
 Run the following command to train the facial recognition model:
@@ -84,8 +83,6 @@ The model used in this project is a Convolutional Neural Network (CNN) trained t
 - **Increased accuracy** in attendance tracking.
 - **Time-saving** through automation.
 - **Real-time attendance monitoring** and reporting.
-
-
 
 ---
 

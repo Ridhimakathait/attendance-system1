@@ -36,16 +36,16 @@ def recognize_face(image_path):
 
     predictions = model.predict(img_array)
     label = np.argmax(predictions)
-    accuracy = np.max(predictions) * 100  # Convert to percentage
+    accuracy = np.max(predictions) * 100  
 
     if accuracy > 90:  # Confidence threshold
         recognized_name = label_dict[label]
-        print(f"Recognized: {recognized_name}, Accuracy: {accuracy:.2f}%")  # Display as percentage
+        print(f"Recognized: {recognized_name}, Accuracy: {accuracy:.2f}%")  
         return recognized_name, accuracy
     else:
-        print("Face not recognized or low accuracy.")  # Changed from confidence to accuracy
+        print("Face not recognized or low accuracy.") 
         return None, accuracy
 
-# Test with an image
-test_image = r"C:\Users\hp\Downloads\archive\lfw-deepfunneled\lfw-deepfunneled\lfw-deepfunneled\Gus_Van_Sant\Gus_Van_Sant_0001.jpg"
-recognize_face(test_image)
+
+# test_image = r"C:\Users\hp\Downloads\archive\lfw-deepfunneled\lfw-deepfunneled\lfw-deepfunneled\Gus_Van_Sant\Gus_Van_Sant_0001.jpg"
+# recognize_face(test_image)

@@ -10,7 +10,7 @@ data_dir = r"C:\Users\hp\Downloads\archive\lfw-deepfunneled\lfw-deepfunneled\lfw
 images, labels, label_dict = preprocess_images(data_dir)
 
 # Check the number of unique classes
-print(f"Unique classes: {len(set(labels))}")  # Should match the number of classes in label_dict
+print(f"Unique classes: {len(set(labels))}")  
 
 # Split data
 X_train, X_test, y_train, y_test = train_test_split(images, labels, test_size=0.2, random_state=42)
@@ -27,14 +27,14 @@ model = Sequential([
     MaxPooling2D((2, 2)),
     Flatten(),
     Dense(128, activation='relu'),
-    Dense(2150, activation='softmax')  # Ensure this matches the number of unique labels
+    Dense(2150, activation='softmax')  
 ])
 
 # Compile the model
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Train the model
-model.fit(X_train, y_train_one_hot, validation_data=(X_test, y_test_one_hot), epochs=20, batch_size=16)  # Changed epochs to 20
+model.fit(X_train, y_train_one_hot, validation_data=(X_test, y_test_one_hot), epochs=20, batch_size=16)  
 
 # Save the model
 model.save("face_recognition_model.h5")

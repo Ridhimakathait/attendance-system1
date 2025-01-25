@@ -35,16 +35,15 @@ class AttendanceSystemGUI:
     def upload_image(self):
         self.image_path = filedialog.askopenfilename()
         if self.image_path:
-            # Extract only the name from the image path
-            self.image_name = self.image_path.split("/")[-2]  # Get the folder name (person's name)
+            self.image_name = self.image_path.split("/")[-2]  
             self.result_label.config(text=f"Image uploaded: {self.image_name}")
 
     def recognize_face(self):
         if hasattr(self, 'image_path'):
-            recognized_name, accuracy = recognize_face(self.image_path)  # Get both name and accuracy
+            recognized_name, accuracy = recognize_face(self.image_path)  
             if recognized_name:
-                self.result_label.config(text=f"Recognized: {recognized_name}, Accuracy: {accuracy:.2f}%")  # Display accuracy
-                self.recognized_name = recognized_name  # Store recognized name for attendance logging
+                self.result_label.config(text=f"Recognized: {recognized_name}, Accuracy: {accuracy:.2f}%")  
+                self.recognized_name = recognized_name  
             else:
                 self.result_label.config(text="Face not recognized or low accuracy.")
         else:
@@ -58,18 +57,18 @@ class AttendanceSystemGUI:
             messagebox.showwarning("Warning", "No recognized name to log.")
 
     def display_records(self):
-        # Clear existing records
+        
         for record in self.records_tree.get_children():
             self.records_tree.delete(record)
 
-        # Fetch attendance records from the database
+        
         conn = sqlite3.connect('attendance.db')
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM attendance")
         records = cursor.fetchall()
         conn.close()
 
-        # Insert records into the treeview
+        
         for record in records:
             self.records_tree.insert("", tk.END, values=record)
 
