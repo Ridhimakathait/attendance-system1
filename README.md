@@ -62,14 +62,14 @@ automatic-attendance-system/
 - Use the "Display Attendance Records" button to view logged attendance.
 
 
-### 2. **Train the Model**:
+### 3. **Train the Model**:
 Run the following command to train the facial recognition model:
 ```bash
 python train.py
 ```
 This will train the model on the images in the `dataset/` folder and save the trained model as `face_recognition_model.h5`.
 
-### 3. **Run Attendance Recognition**:
+### 4. **Run Attendance Recognition**:
 Once the model is trained, you can use the following command to start recognizing faces and log attendance in real-time:
 ```bash
 python recognize.py
