@@ -5,8 +5,9 @@ This project uses **machine learning** and **facial recognition** to automate th
 ## Features
 - **Facial Recognition**: Improved accuracy threshold for face recognition.
 - **Automated Attendance**: Real-time logging of attendance with minimal human intervention.
-- **User Interface**: Added GUI functionality for uploading images and logging attendance.
+- **User Interface**: The GUI allows users to upload images for recognition, log attendance, and view attendance records.
 - **Database Integration**: SQLite-based database to store attendance records.
+
 
 ## Technologies Used
 - **Python** (3.x)
@@ -52,6 +53,14 @@ automatic-attendance-system/
 ### 1. **Prepare the Dataset**:
 - Create a folder `dataset/` and place images of individuals in it.
 - Each folder within `dataset/` should be named after the person and contain multiple images of them.
+
+### 2. **Using the GUI**:
+- Run the application using the command `python attendance_gui.py`.
+- Use the "Upload Image" button to select an image for recognition.
+- Click "Recognize" to identify the person in the uploaded image.
+- If recognized, click "Log Attendance" to record the attendance.
+- Use the "Display Attendance Records" button to view logged attendance.
+
 
 ### 2. **Train the Model**:
 Run the following command to train the facial recognition model:
